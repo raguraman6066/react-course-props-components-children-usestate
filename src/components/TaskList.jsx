@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import TaskCard from "./TaskCard";
 import BoxCard from "./BoxCard";
+import "./TaskList.css";
 
 const TaskList = (props) => {
   const [tasks, setTasks] = useState([
@@ -14,14 +15,24 @@ const TaskList = (props) => {
     let newTasks = tasks.filter((task) => task.id != id);
     setTasks(newTasks);
   }
+  const styles = {
+    color: "#be3434",
+    // border: "1px solid #be3434",
+    borderColor: show ? "#3D8361" : "#be3434",
+    borderRadius: "5px",
+    // padding: "20px",
+  };
 
   return (
-    <>
-      <h2>Task List - {props.title} </h2>
+    <section className="tasklist">
+      {/* <h2 style={styles}>Task List - {props.title} </h2> */}
       <ul>
-        <button className="trigger" onClick={() => setShow(!show)}>
-          Toggle
-        </button>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <h2 style={styles}>Task List </h2>
+          <button className="trigger" onClick={() => setShow(!show)}>
+            {show ? "hide tasks" : "show tasks"}
+          </button>
+        </div>
         {show &&
           tasks.map((task) => (
             <TaskCard
@@ -31,7 +42,7 @@ const TaskList = (props) => {
             />
           ))}
       </ul>
-      <BoxCard result="success">
+      {/* <BoxCard result="success">
         <p className="title">Lorem ipsum dolor sit amet consectetur.</p>
         <p className="description">
           Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet
@@ -51,8 +62,8 @@ const TaskList = (props) => {
           Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet
           consectetur.
         </p>
-      </BoxCard>
-    </>
+      </BoxCard> */}
+    </section>
   );
 };
 
