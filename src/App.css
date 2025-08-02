@@ -6,7 +6,12 @@ a {
   text-decoration: none;
   color: #000000;
 }
-
+main{
+  min-height: 90vh;
+  max-width: 1200px;
+  margin: auto;
+  padding: 10px;
+}
 
 .hidden {
   display: none;

@@ -3,12 +3,7 @@ import TaskCard from "./TaskCard";
 import BoxCard from "./BoxCard";
 import "./TaskList.css";
 
-const TaskList = (props) => {
-  const [tasks, setTasks] = useState([
-    { id: 1, name: "Record lecture", completed: false },
-    { id: 2, name: "watch lecture", completed: true },
-    { id: 3, name: "practice lecture", completed: false },
-  ]);
+const TaskList = ({ tasks }) => {
   const [show, setShow] = useState(true);
 
   function handleDelete(id) {
@@ -35,11 +30,7 @@ const TaskList = (props) => {
         </div>
         {show &&
           tasks.map((task) => (
-            <TaskCard
-              info={props.info}
-              task={task}
-              handleDelete={handleDelete}
-            />
+            <TaskCard task={task} handleDelete={handleDelete} />
           ))}
       </ul>
       {/* <BoxCard result="success">

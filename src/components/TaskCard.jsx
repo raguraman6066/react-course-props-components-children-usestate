@@ -1,7 +1,7 @@
 import React from "react";
 import "./TaskCard.css";
 // import styles from "./TaskCard.module.css";
-const TaskCard = ({ task, handleDelete, info }) => {
+const TaskCard = ({ task, handleDelete }) => {
   return (
     <div className="taskcard">
       <li key={task.id} className={task.completed ? "completed" : "incomplete"}>
